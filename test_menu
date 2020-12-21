@@ -1,0 +1,109 @@
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include "ResourcePath.hpp"
+
+using namespace std;
+using namespace sf;
+
+RenderWindow window(VideoMode(640, 360), "Let's play!.");
+
+int head()
+{
+    if (!window.isOpen()) return 2;
+
+    Font font;
+    if (!font.loadFromFile(resourcePath() + "PTMono.ttc"))
+        return EXIT_FAILURE;
+
+    Text name[2], menu[3];
+    
+    for (int i = 0; i < 2; ++i)
+    {
+        name[i].setFillColor(Color(227, 244, 244));
+        name[i].setFont(font);
+        name[i].setCharacterSize(70);
+        name[i].move(100 + 225 * i, 30);
+        name[i].setOutlineColor(Color(60, 177, 188));
+        name[i].setOutlineThickness(4);
+    }
+    
+    for (int i = 0; i < 3; ++i)
+    {
+        menu[i].setFillColor(Color(192, 224, 224));
+        menu[i].setFont(font);
+        menu[i].setCharacterSize(30);
+        menu[i].move(100, 140 + 50 * i);
+        menu[i].setOutlineColor(Color(64, 128, 128));
+        menu[i].setOutlineThickness(2);
+    }
+    
+    name[0].setString(L"ЧЕТ -");
+    name[1].setString(L"НЕЧЕТ");
+    menu[0].setString(L"- Поиграем?");
+    menu[1].setString(L"- Узнать правила игры");
+    menu[2].setString(L"- Выход");
+
+    int i = 0;
+    
+    while (window.isOpen())
+    {
+        Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == Event::Closed)
+            {
+                window.close();
+                return 2;
+            }
+
+            for (int i = 0; i < 3; ++i)
+            {
+                if (IntRect(120, 140 + 50 * i, 330, 40).contains(Mouse::getPosition(window)))
+                {
+                    menu[i].setFillColor(Color(0, 32, 32));
+
+                    if (event.type == Event::MouseButtonReleased && event.mouseButton.button == Mouse::Left)
+                    {
+                        return i;
+                    }
+                }
+                else
+                {
+                    menu[i].setFillColor(Color(192, 224, 224));
+                }
+            }
+        }
+
+        window.clear(Color::White);
+
+        for (int i = 0; i < 2; ++i)
+        {
+            window.draw(name[i]);
+        }
+        
+        for (int i = 0; i < 3; ++i)
+        {
+            window.draw(menu[i]);
+        }
+   
+        window.display();
+    }
+}
+
+int main()
+{
+    while (1)
+    {
+        switch (head())
+        {
+        case 0:
+            //game();
+            break;
+        case 1:
+            //rules();
+            break;
+        case 2:
+            return 0;
+        }
+    }
+}
