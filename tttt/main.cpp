@@ -23,7 +23,7 @@ using namespace sf;
 
 RenderWindow window(VideoMode(640, 360), "Let's play!");
 
-int head()
+int Head::head()
 {
     if (!window.isOpen()) return 2;//если окно не открыто, то выход
     
@@ -107,7 +107,7 @@ int head()
     }
 }
 
-void rules()
+void Rules::rules()
 {
     Font font;
     font.loadFromFile(resourcePath() + "PTMono.ttc");
@@ -133,7 +133,7 @@ void rules()
         rules[i].setFillColor(Color(60, 177, 188));
         rules[i].setFont(font);
         rules[i].setCharacterSize(15);
-        rules[i].move(10, 30 + 15 * i);
+        rules[i].move(10, 50 + 15 * i);
     }
     g_rule.setString(L"Правила игры:");
     rules[0].setString(L"Два игрока, «нечетный» и «четный», по очереди ставят единицы и нули в");
@@ -189,19 +189,5 @@ void rules()
 
 int main()
 {
-    while (1)
-    {
-	cout << "hello" << Lendl;
-        switch (head())
-        {
-        case 0:
-            //game();
-            break;
-        case 1:
-            rules();
-            break;
-        case 2:
-            return 0;
-        }
-    }
+    ClientCode();
 }
