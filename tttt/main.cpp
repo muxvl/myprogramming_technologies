@@ -191,6 +191,7 @@ int main()
 {
     while (1)
     {
+	cout << "hello" << Lendl;
         switch (head())
         {
         case 0:
