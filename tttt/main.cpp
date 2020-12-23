@@ -28,7 +28,7 @@ int n;
 bool server = false;
 bool turn = false;
 
-int head()
+int Head::head()
 {
     if (!window.isOpen()) return 2;//если окно не открыто, то выход
     
@@ -112,7 +112,7 @@ int head()
     }
 }
 
-void rules()
+void Rules:: rules()
 {
     Font font;
     font.loadFromFile(resourcePath() + "PTMono.ttc");
@@ -430,18 +430,5 @@ void game()
 
 int main()
 {
-    while (1)
-    {
-        switch (head())
-        {
-        case 0:
-            game();
-            break;
-        case 1:
-            rules();
-            break;
-        case 2:
-            return 0;
-        }
-    }
+    ClientCode();
 }
