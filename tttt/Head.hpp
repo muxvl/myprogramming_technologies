@@ -10,4 +10,12 @@
 #define Head_hpp
 #include "Stretegy.hpp"
 
+class Head : public Strategy{
+public:
+    Head(sf::RenderWindow &window){}
+    virtual ~Head() {};
+    int game(sf::RenderWindow &window) override;
+    
+    
+};
 #endif /* Head_hpp */
