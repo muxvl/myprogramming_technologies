@@ -2,7 +2,7 @@
 //  Stretegy.hpp
 //  technology_progamming
 //
-//  Created by Елизавета Михеенко on 25/12/2020.
+//  Created by Елизавета Михеенко
 //  Copyright © 2020 Елизавета Михеенко. All rights reserved.
 //
 
