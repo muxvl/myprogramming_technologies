@@ -15,7 +15,6 @@ public:
     Head(sf::RenderWindow &window){}
     virtual ~Head() {};
     int game(sf::RenderWindow &window) override;
-    
-    
 };
 #endif /* Head_hpp */
+

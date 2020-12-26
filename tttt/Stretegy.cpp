@@ -9,3 +9,10 @@
 #include "Stretegy.hpp"
 
 
+bool server = false;
+bool turn = false;
+bool number = false;
+bool ended = false;
+bool counted = false;
+
+

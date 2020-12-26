@@ -16,6 +16,9 @@ void ClientCode()
     {
         switch (play1->dohead(window))
         {
+        case 3:
+            play1->dohead(window);
+            play1->dohead(window);
         case 0:
             play1->set_strategy(game);
             play1->dohead(window);

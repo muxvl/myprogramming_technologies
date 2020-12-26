@@ -65,7 +65,7 @@ int Rules::game(sf::RenderWindow &window)
                 away.setFillColor(sf::Color(0, 32, 32));
 
                 if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
-                    return;
+                    return 3;
             }
             else
             {
@@ -85,7 +85,7 @@ int Rules::game(sf::RenderWindow &window)
         window.draw(away);
 
         window.display();
-        return 0;
     }
-    return 0;
+    return 2;
 }
+
